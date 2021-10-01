@@ -3,30 +3,51 @@
 }
 
 .Home-logo {
-  animation: Home-logo-spin infinite 20s linear;
-  height: 40vmin;
+  /* animation: Home-logo-spin infinite 20s linear; */
+  height: 10vmin;
   pointer-events: none;
 }
 
 .Home-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #d5ddeb;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+}
+.Home-body {
+  background-color: #d5ddeb;
+  min-height: 50vh;
+  display: normal;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.Home-footer {
+  background-color: #032868;
+  min-height: 5vh;
+  display: normal;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
 }
 
 .Home-link {
-  color: #61dafb;
+  color: #170191;
 }
 
 .Home-api-response {
   margin-top: 10px;
   width: 50%;
-  background-color: #434d63;
+  background-color: #d5ddeb;
   display: inline-block;
   font-family: 'Lucida Console', monospace
 }
@@ -46,9 +67,9 @@
   max-width: 50%;
 }
 .Home-details a {
-  color: #61dafb;
+  color: #170191;
 }
 .Home-details-links {
-  text-align: left;
+  text-align: center;
   display: inline-block;
 }

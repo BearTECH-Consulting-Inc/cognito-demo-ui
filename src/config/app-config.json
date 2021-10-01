@@ -1,15 +1,15 @@
 {
-    "region": "eu-west-2",
-    "userPool": "eu-west-2_z1Go5XdrZ",
-    "userPoolBaseUri": "https://auth-cognito-demo.arronharden.com",
-    "clientId": "4tnp4k64d5v4ah9dud3pj1kbs0",
-    "callbackUri": "https://cognito-demo.arronharden.com/callback",
-    "signoutUri": "https://cognito-demo.arronharden.com",
+    "region": "us-east-2",
+    "userPool": "us-east-2_Fkvfsx7UR",
+    "userPoolBaseUri": "https://phc-demo.auth.us-east-2.amazoncognito.com",
+    "clientId": "38jnlb2fmqm4530dtoip66j415",
+    "IdentityPoolId": "us-east-2:997dbcf7-2eeb-4314-b812-7f9d1c9c47df",
+    "callbackUri": "http://localhost:3000/callback",
+    "signoutUri": "http://localhost:3000/",
     "tokenScopes": [
         "openid",
         "email",
-        "profile",
-        "https://cognito-demo-api.arronharden.com/hello-world.all"                
+        "profile"    
     ],
-    "apiUri": "https://cognito-demo-api.arronharden.com"
+    "apiUri":"https://ehgxv3vcs8.execute-api.us-east-2.amazonaws.com/prod"
 }
