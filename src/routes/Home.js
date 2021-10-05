@@ -17,36 +17,36 @@ class Home extends Component {
   }
      
 
-      componentDidMount() {
-        if (this.props.session.isLoggedIn) {
-          const options = {
-            url: `${appConfig.apiUri}/phc`,
-            headers: {
-              'Authorization': `${this.props.session.credentials.idToken}`,
-              'Content-Type': 'application/json'
-            }
-          }
-          this.setState({ apiStatus: 'Loading...', tableData: options.tableData })
-          request.get(options, (err, resp, body) => {
-                let apiStatus, apiResponse
-                if (err) {
-                  // is API server started and reachable?
-                  apiStatus = 'Unable to reach API'
-                  console.error(apiStatus + ': ' + err)
-                } else if (resp.statusCode !== 200) {
-                  // API returned an error
-                  apiStatus = 'Error response received'
-                  apiResponse = body
-                  console.error(apiStatus + ': ' + JSON.stringify(resp))
-                } else {
-                  apiStatus = 'Successful response received.'
-                  apiResponse = body
-                }
-                this.setState({ apiStatus, apiResponse })
+      // componentDidMount() {
+      //   if (this.props.session.isLoggedIn) {
+      //     const options = {
+      //       url: `${appConfig.apiUri}/phc`,
+      //       headers: {
+      //         'Authorization': `${this.props.session.credentials.idToken}`,
+      //         'Content-Type': 'application/json'
+      //       }
+      //     }
+      //     this.setState({ apiStatus: 'Loading...', tableData: options.tableData })
+      //     request.get(options, (err, resp, body) => {
+      //           let apiStatus, apiResponse
+      //           if (err) {
+      //             // is API server started and reachable?
+      //             apiStatus = 'Unable to reach API'
+      //             console.error(apiStatus + ': ' + err)
+      //           } else if (resp.statusCode !== 200) {
+      //             // API returned an error
+      //             apiStatus = 'Error response received'
+      //             apiResponse = body
+      //             console.error(apiStatus + ': ' + JSON.stringify(resp))
+      //           } else {
+      //             apiStatus = 'Successful response received.'
+      //             apiResponse = body
+      //           }
+      //           this.setState({ apiStatus, apiResponse })
 
-              })
-        }
-      }
+      //         })
+      //   }
+      // }
 
   onSignOut = (e) => {
     e.preventDefault()
