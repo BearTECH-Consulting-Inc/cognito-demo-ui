@@ -54,7 +54,7 @@ class Home extends Component {
   }
   
   render () {
-
+    console.log(this.props)
     return (
       <div className="Home">
         <header className="Home-header">
@@ -63,6 +63,8 @@ class Home extends Component {
             <div className="Home-details">
             <div>
               <p>You are logged in as user {this.props.session.user.userName} ({this.props.session.user.email}).</p>
+              <div>
+              </div>
               <p><a className="Home-link" href="/#" onClick={this.onSignOut}>Sign out</a>.</p>
             </div>
             </div>
@@ -90,7 +92,7 @@ class Home extends Component {
             { this.props.session.isLoggedIn ? (
               <div>
               <p>idToken: {this.props.session.credentials.idToken}</p>
-
+              <p>test: {this.props.authorization_header}</p>
               <p>accessKeyId: {this.props.session.credentials.accessKeyId}</p>
               </div>
               ) : (
