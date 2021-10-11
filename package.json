@@ -16,6 +16,7 @@
     "url": "https://github.com/arronharden/cognito-demo-ui"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "amazon-cognito-auth-js": "^1.3.2",
     "amazon-cognito-identity-js": "^3.0.14",
     "aws-sdk": "^2.498.0",
