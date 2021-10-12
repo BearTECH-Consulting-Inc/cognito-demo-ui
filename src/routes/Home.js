@@ -26,8 +26,8 @@ class Home extends Component {
         headers: {
           "Authorization": this.props.session.credentials.auth_header,
           "Content-Type": "application/json",
-          "X-Amz-Security-Token": this.props.session.credentials.sessionToken,
-          "X-Amz-Date": this.props.session.credentials.amzdate,
+          "x-amz-date": this.props.session.credentials.amzdate,
+          "x-amz-security-token": this.props.session.credentials.sessionToken
         },
       };
       this.setState({ apiStatus: "Loading...", tableData: options.tableData });
@@ -46,6 +46,7 @@ class Home extends Component {
           apiStatus = "Successful response received.";
           apiResponse = body;
         }
+        console.log(options)
         this.setState({ apiStatus, apiResponse });
       });
     }

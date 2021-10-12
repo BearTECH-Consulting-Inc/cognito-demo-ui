@@ -86,7 +86,7 @@ const parseCognitoWebResponse = (href) => {
             
             const method = "GET"
             const service = "execute-api"
-            const host = "ehgxv3vcs8.execute-api.us-east-2.amazonaws.com"
+            const host = "u6bkhgokv3.execute-api.us-east-2.amazonaws.com"
             const region = "us-east-2"
             const accessKeyId = AWS.config.credentials.accessKeyId
             const secretAccessKey = AWS.config.credentials.secretAccessKey
@@ -115,7 +115,7 @@ const parseCognitoWebResponse = (href) => {
             var signed_headers = 'host;x-amz-date;x-amz-security-token'
             var payload_hash = crypto.createHash("sha256").update("").digest('hex')
             var canonical_request = method + '\n' + coanical_uri + '\n' + coanical__querystring + '\n' + coanical_headers + '\n' + signed_headers + '\n' + payload_hash
-         
+         console.log(canonical_request)
             var algorithm = 'AWS4-HMAC-SHA256'
             var credential_scope = datestamp + '/' + region + '/' + service + '/' + 'aws4_request'
             var string_to_sign = algorithm + '\n' +  amzdate + '\n' +  credential_scope + '\n' +  crypto.createHash("sha256").update(canonical_request).digest("hex")
@@ -126,7 +126,10 @@ const parseCognitoWebResponse = (href) => {
             var signature = crypto.createHmac("sha256", signing_key).update(string_to_sign).digest("hex")
           
             const authorization_header = algorithm + ' ' + 'Credential=' + accessKeyId + '/' + credential_scope + ', ' +  'SignedHeaders=' + signed_headers + ', ' + 'Signature=' + signature 
-          
+          console.log(signing_key)
+          console.log(signature)
+          console.log(authorization_header)
+          console.log(signed_headers)
             const session = {
               credentials: {
                 accessToken: result.accessToken.jwtToken,
@@ -134,14 +137,18 @@ const parseCognitoWebResponse = (href) => {
                 refreshToken: result.refreshToken.token,
                 sessionToken: AWS.config.credentials.sessionToken,
                 auth_header: authorization_header,
-                amzdate: amzdate
+                amzdate: amzdate,
+                accessKeyId: accessKeyId,
+                secretAccessKey: secretAccessKey
               },
               user: {
                 userName: result.idToken.payload['cognito:username'],
                 email: result.idToken.payload.email
               }
             }
+
             resolve(session)
+            console.log(session)
           }
         });
       })
